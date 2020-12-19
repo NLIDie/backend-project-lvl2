@@ -2,7 +2,7 @@ install:
 	npm install
 
 run:
-	bin/nodejs-package.js 10
+	bin/gendiff.js
 
 install-deps:
 	npm ci

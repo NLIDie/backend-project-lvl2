@@ -1,5 +1,5 @@
 // @ts-check
 
-import half from './src/half.js';
+import genDiff from './src/gendiff.js';
 
-export default half;
+export default genDiff;
