@@ -39,26 +39,41 @@ $ make unlink
 ## Use CLI 
 
 ### Get diff JSON files
+#### Stylish Format
 
 ```sh
 $ gendiff filePath1.json filePath2.json
 ```
 
-[![asciicast](https://asciinema.org/a/JWCKGcp8xWSj9b67cWmiMinmn.svg)](https://asciinema.org/a/JWCKGcp8xWSj9b67cWmiMinmn)
+[![asciicast](https://asciinema.org/a/384312.svg)](https://asciinema.org/a/384312)
+
+#### Plain Format
+```sh
+$ gendiff filePath1.json filePath2.json plain
+```
+
+[![asciicast](https://asciinema.org/a/384313.svg)](https://asciinema.org/a/384313)
 
 ### Get diff YML, YAML files
-
+#### Stylish Format
 ```sh
 $ gendiff filePath1.yml filePath2.yml
 ```
-
 #
-[![asciicast](https://asciinema.org/a/gfkqAGBNC4wb3Z5hsSAXdGZaN.svg)](https://asciinema.org/a/gfkqAGBNC4wb3Z5hsSAXdGZaN)
+[![asciicast](https://asciinema.org/a/384315.svg)](https://asciinema.org/a/384315)
+
+#### Plain Format
+```sh
+$ gendiff filePath1.yml filePath2.yml plain
+```
+#
+[![asciicast](https://asciinema.org/a/384317.svg)](https://asciinema.org/a/384317)
 
 ## Use in JavaScript code
 
 ```javascript
-import genDiff from 'gendiff';
+import genDiff from '@hexlet/code';
 
-const diff = genDiff(filePath1, filePath2);
+const diff = genDiff(filePath1, filePath2, outputFormat);
+console.log(diff);
 ```
