@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
-import stylishFormat from './formatters/stylish.js';
 import buildAST from './astBuilder.js';
+import format from './formatters/index.js';
 import parse from './parsers.js';
 
 const getFullPath = (filePath) => path.resolve(process.cwd(), filePath);
@@ -13,7 +13,7 @@ const getFullPath = (filePath) => path.resolve(process.cwd(), filePath);
  * @param {string} filePath2 path to seconds file.
  * @return {string} diff
  */
-const genDiff = (filePath1, filePath2) => {
+const genDiff = (filePath1, filePath2, outputFormat = 'stylish') => {
   const file1 = fs.readFileSync(getFullPath(filePath1), 'utf-8');
   const file2 = fs.readFileSync(getFullPath(filePath2), 'utf-8');
 
@@ -24,7 +24,7 @@ const genDiff = (filePath1, filePath2) => {
   const data2 = parse(file2, format2);
 
   const ast = buildAST(data1, data2);
-  const diff = stylishFormat(ast);
+  const diff = format(ast, outputFormat);
 
   return diff;
 };

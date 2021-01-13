@@ -9,14 +9,14 @@ const parsersMapping = {
 /**
  * Parse data
  * @param {string} data data for parsing.
- * @param {'json' | 'yml' | 'yaml'} format data format.
+ * @param {'json' | 'yml' | 'yaml'} type data type.
  * @return {object} data as JS object
  */
-export default (data, format) => {
-  const parse = parsersMapping[format];
+export default (data, type) => {
+  const parse = parsersMapping[type];
 
   if (!parse) {
-    throw new Error(`There is no parser for "${format}"`);
+    throw new Error(`There is no parser for "${type}"`);
   }
 
   return parse(data);
