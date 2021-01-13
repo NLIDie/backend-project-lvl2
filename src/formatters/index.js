@@ -4,6 +4,7 @@ import plainFormat from './plain.js';
 const formattersMapping = {
   stylish: stylishFormat,
   plain: plainFormat,
+  json: JSON.stringify,
 };
 
 export default (ast, type) => {

@@ -8,8 +8,8 @@ program
   .version('0.0.1')
   .option('-f, --format [type]', 'output format', 'stylish')
   .arguments('<filepath1> <filepath2> [format]')
-  .action((filePath1, filePath2, format) => {
-    const diff = genDiff(filePath1, filePath2, format);
+  .action((filePath1, filePath2) => {
+    const diff = genDiff(filePath1, filePath2, program.format);
     console.log(diff);
   });
 

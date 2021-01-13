@@ -11,13 +11,7 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFixture = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8').trim();
 
-const outputResults = {};
-beforeAll(() => {
-  outputResults.stylish = readFixture('result_stylish.txt');
-  outputResults.plain = readFixture('result_plain.txt');
-});
-
-const outputFormats = ['stylish', 'plain'];
+const outputFormats = ['stylish', 'plain', 'json'];
 const filesExtensions = [
   ['json', 'json'],
   ['yml', 'yml'],
@@ -29,6 +23,17 @@ const filesExtensions = [
   ['yml', 'json'],
   ['yaml', 'json'],
 ];
+
+let outputResults = {};
+beforeAll(() => {
+  outputResults = outputFormats.reduce(
+    (acc, format) => ({
+      ...acc,
+      [format]: readFixture(`result_${format}.txt`),
+    }),
+    {},
+  );
+});
 
 describe('genDiff', () => {
   outputFormats.forEach((outputFormat) => {
