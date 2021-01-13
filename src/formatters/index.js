@@ -1,7 +1,9 @@
 import stylishFormat from './stylish.js';
+import plainFormat from './plain.js';
 
 const formattersMapping = {
   stylish: stylishFormat,
+  plain: plainFormat,
 };
 
 export default (ast, type) => {
