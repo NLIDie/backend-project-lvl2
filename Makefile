@@ -1,10 +1,8 @@
-install: install-deps
-
-make:
-	bin/gendiff.js ./__fixtures__/file1.json ./__fixtures__/file2.json
-
-install-deps:
+install:
 	npm ci
+
+start:
+	bin/gendiff.js ./__fixtures__/file1.json ./__fixtures__/file2.json
 
 test:
 	npm test
@@ -15,7 +13,13 @@ test-coverage:
 lint:
 	npx eslint .
 
+link:
+	npm link
+
+unlink:
+	npm unlink
+
 publish:
-	npm publish
+	npm publish --access public
 
 .PHONY: test
