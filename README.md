@@ -49,10 +49,17 @@ $ gendiff filePath1.json filePath2.json
 
 #### Plain Format
 ```sh
-$ gendiff filePath1.json filePath2.json plain
+$ gendiff --format plain filePath1.json filePath2.json
 ```
 
-[![asciicast](https://asciinema.org/a/384313.svg)](https://asciinema.org/a/384313)
+[![asciicast](https://asciinema.org/a/384367.svg)](https://asciinema.org/a/384367)
+
+#### JSON Format
+```sh
+$ gendiff --format json filePath1.json filePath2.json
+```
+
+[![asciicast](https://asciinema.org/a/384368.svg)](https://asciinema.org/a/384368)
 
 ### Get diff YML, YAML files
 #### Stylish Format
@@ -64,10 +71,17 @@ $ gendiff filePath1.yml filePath2.yml
 
 #### Plain Format
 ```sh
-$ gendiff filePath1.yml filePath2.yml plain
+$ gendiff --format plain filePath1.yml filePath2.yml
 ```
 #
-[![asciicast](https://asciinema.org/a/384317.svg)](https://asciinema.org/a/384317)
+[![asciicast](https://asciinema.org/a/384369.svg)](https://asciinema.org/a/384369)
+
+#### JSON Format
+```sh
+$ gendiff --format json filePath1.yml filePath2.yml
+```
+#
+[![asciicast](https://asciinema.org/a/384371.svg)](https://asciinema.org/a/384371)
 
 ## Use in JavaScript code
 
