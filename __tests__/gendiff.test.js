@@ -24,25 +24,15 @@ const filesExtensions = [
   ['yaml', 'json'],
 ];
 
-let outputResults = {};
-beforeAll(() => {
-  outputResults = outputFormats.reduce(
-    (acc, format) => ({
-      ...acc,
-      [format]: readFixture(`result_${format}.txt`),
-    }),
-    {},
-  );
-});
-
 describe('genDiff', () => {
   outputFormats.forEach((outputFormat) => {
     describe(`${outputFormat} format`, () => {
       filesExtensions.forEach(([fileExt1, fileExt2]) => {
+        const result = readFixture(`result_${outputFormat}.txt`);
+
         test(`Should return correct diff *.${fileExt1} *.${fileExt2} files`, () => {
           const filePath1 = getFixturePath(`file1.${fileExt1}`);
           const filePath2 = getFixturePath(`file2.${fileExt2}`);
-          const result = outputResults[outputFormat];
 
           expect(genDiff(filePath1, filePath2, outputFormat)).toBe(result);
         });
