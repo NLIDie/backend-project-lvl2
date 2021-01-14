@@ -1,7 +1,5 @@
-import { Command } from 'commander';
+import program from 'commander';
 import genDiff from './gendiff.js';
-
-const program = new Command();
 
 program
   .description('Compares two configuration files and shows a difference.')
